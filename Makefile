@@ -7,4 +7,7 @@ test:
 coverage:
 	php ./vendor/bin/pest --coverage
 
+migrate:
+	php artisan migrate
+
 
