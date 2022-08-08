@@ -1,0 +1,19 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - src/App
+        - src/Domain
+        - src/Support
+
+    # The level 9 is the highest level
+    level: 9
+
+    ignoreErrors:
+
+    excludePaths:
+        - ./src/App/Providers/RouteServiceProvider.php
+
+    checkMissingIterableValueType: false
