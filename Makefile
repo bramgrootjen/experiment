@@ -10,4 +10,7 @@ coverage:
 migrate:
 	php artisan migrate
 
+dump:
+	composer dump-autoload
+
 
