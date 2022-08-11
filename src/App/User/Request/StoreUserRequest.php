@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\User;
+namespace App\User\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Support\Enum\Rules;

@@ -7,9 +7,10 @@ use Domain\User\Models\User;
 
 class UserFactory
 {
-    public function create(string $email, string $password): User
+    public function create(string $name, string $email, string $password): User
     {
         $user = new User();
+        $user->name = $name;
         $user->email = $email;
         $user->password = $password;
 

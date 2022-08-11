@@ -17,8 +17,8 @@ class UserRepository extends BaseRepository
         $this->userFactory = $userFactory;
     }
 
-    public function create(string $email, string $password): User
+    public function store(string $name, string $email, string $password): User
     {
-        return $this->userFactory->create($email, $password);
+        return $this->userFactory->create($name, $email, $password);
     }
 }

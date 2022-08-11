@@ -10,7 +10,6 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "spatie/data-transfer-object": "^3.8",
         "symfony/property-access": "^6.1",
         "symfony/serializer": "^6.1"
     },

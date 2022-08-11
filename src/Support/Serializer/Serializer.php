@@ -28,7 +28,7 @@ class Serializer
     /**
      * @throws ExceptionInterface
      */
-    public function denormalize(array $data, string $classname)
+    public function denormalize(array $data, string $classname): mixed
     {
         return $this->serializer->denormalize($data, $classname);
     }

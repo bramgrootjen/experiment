@@ -3,30 +3,35 @@ declare(strict_types=1);
 
 namespace App\User\Controllers;
 
-use App\User\StoreUserRequest;
-use Domain\User\DataTransferObjects\UserEntity;
-use JetBrains\PhpStorm\NoReturn;
+use App\User\Request\Entity\UserEntity;
+use App\User\Request\StoreUserRequest;
+use Domain\User\Repository\UserRepository;
+use Illuminate\Http\JsonResponse;
 use Support\Serializer\Serializer;
 use Symfony\Component\Serializer\Exception\ExceptionInterface;
 
 class StoreController
 {
     private Serializer $serializer;
+    private UserRepository $userRepository;
 
-    public function __construct(Serializer $serializer)
+    public function __construct(Serializer $serializer, UserRepository $userRepository)
     {
         $this->serializer = $serializer;
+        $this->userRepository = $userRepository;
     }
 
     /**
      * @throws ExceptionInterface
      */
-    #[NoReturn] public function __invoke(StoreUserRequest $storeUserRequest): void
+    public function __invoke(StoreUserRequest $storeUserRequest): JsonResponse
     {
-        $entity = $this->serializer->denormalize($storeUserRequest->all(), UserEntity::class);
+        $userEntity = $this->serializer->denormalize($storeUserRequest->all(), UserEntity::class);
+        $this->userRepository->store($userEntity->name, $userEntity->email, $userEntity->password);
 
-
-
-        dd($entity);
+        return response()->json(
+            data: null,
+            status: Http::ACCEPTED
+        );
     }
 }
