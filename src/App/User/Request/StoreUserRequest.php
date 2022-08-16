@@ -8,6 +8,9 @@ use Support\Enum\Rules;
 
 class StoreUserRequest extends FormRequest
 {
+    /**
+     * @return string[]
+     */
     public function rules(): array
     {
         return [

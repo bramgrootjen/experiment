@@ -1,13 +1,15 @@
 <?php
+declare(strict_types=1);
 
 namespace App\User\Controllers;
 
+use JetBrains\PhpStorm\NoReturn;
 use Support\Controllers\Controller;
 
 class CreateController extends Controller
 {
-    public function __invoke(): void
+    #[NoReturn] public function __invoke(): void
     {
-        dd('create page here');
+
     }
 }

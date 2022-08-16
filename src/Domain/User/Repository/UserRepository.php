@@ -9,16 +9,12 @@ use Support\Repository\BaseRepository;
 
 class UserRepository extends BaseRepository
 {
-    private UserFactory $userFactory;
-
-    public function __construct(User $model, UserFactory $userFactory)
+    public function __construct(private readonly UserFactory $userFactory)
     {
-        $this->model = $model;
-        $this->userFactory = $userFactory;
     }
 
     public function store(string $name, string $email, string $password): User
     {
-        return $this->userFactory->create($name, $email, $password);
+        return $this->userFactory->create(name: $name, email: $email, password: $password);
     }
 }
